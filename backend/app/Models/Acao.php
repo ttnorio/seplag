@@ -3,8 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Acao extends Model
 {
-    //
+    protected $fillable = [
+        'programa_id',
+        'codigo',
+        'nome',
+    ];
+
+    public function programa(): BelongsTo
+    {
+        return $this->belongsTo(Programa::class);
+    }
+
+    public function orcamentos(): HasMany
+    {
+        return $this->hasMany(Orcamento::class);
+    }
 }

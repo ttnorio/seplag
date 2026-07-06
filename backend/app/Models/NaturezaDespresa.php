@@ -3,8 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class NaturezaDespresa extends Model
+class NaturezaDespesa extends Model
 {
-    //
+    protected $table = 'naturezas_despesa';
+
+    protected $fillable = [
+        'codigo',
+        'descricao',
+    ];
+
+    public function orcamentos(): HasMany
+    {
+        return $this->hasMany(Orcamento::class);
+    }
 }

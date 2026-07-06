@@ -3,8 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Funcao extends Model
 {
-    //
+    protected $fillable = [
+        'codigo',
+        'nome',
+    ];
+
+    public function subfuncoes(): HasMany
+    {
+        return $this->hasMany(Subfuncao::class);
+    }
+
+    public function orcamentos(): HasMany
+    {
+        return $this->hasMany(Orcamento::class);
+    }
 }
