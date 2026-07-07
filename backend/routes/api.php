@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ContratoController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\GraficoController;
 use App\Http\Controllers\Api\OrcamentoController;
 use App\Http\Controllers\Api\OrgaoController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/graficos', [GraficoController::class, 'index']);
 
 Route::get('/orgaos', [OrgaoController::class, 'index']);
 
