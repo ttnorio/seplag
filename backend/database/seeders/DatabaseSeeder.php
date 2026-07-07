@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UnidadeGestoraSeeder::class,
             AcaoSeeder::class,
             OrcamentoSeeder::class,
+            ContratoSeeder::class,
         ]);
     }
 }
