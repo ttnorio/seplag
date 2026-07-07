@@ -1,0 +1,22 @@
+[
+  { "sigla": "SEPLAG", "nome": "Secretaria de Estado de Planejamento e Gestão", "status": "ativo" },
+  { "sigla": "SEEDUC", "nome": "Secretaria de Estado de Educação", "status": "ativo" },
+  { "sigla": "SES", "nome": "Secretaria de Estado de Saúde", "status": "ativo" },
+  { "sigla": "SEFAZ", "nome": "Secretaria de Estado de Fazenda", "status": "ativo" },
+  { "sigla": "SEINFRA", "nome": "Secretaria de Estado de Infraestrutura e Obras", "status": "ativo" },
+  { "sigla": "SEAS", "nome": "Secretaria de Estado de Assistência Social e Direitos Humanos", "status": "ativo" },
+  { "sigla": "SECTI", "nome": "Secretaria de Estado de Ciência, Tecnologia e Inovação", "status": "ativo" },
+  { "sigla": "SEAGRO", "nome": "Secretaria de Estado de Agricultura, Pecuária e Abastecimento", "status": "ativo" },
+  { "sigla": "SETUR", "nome": "Secretaria de Estado de Turismo", "status": "ativo" },
+  { "sigla": "SEAMB", "nome": "Secretaria de Estado do Ambiente e Sustentabilidade", "status": "ativo" },
+  { "sigla": "CASA CIVIL", "nome": "Secretaria de Estado da Casa Civil", "status": "ativo" },
+  { "sigla": "PMERJ", "nome": "Polícia Militar do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "PCERJ", "nome": "Polícia Civil do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "CBMERJ", "nome": "Corpo de Bombeiros Militar do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "DETRAN-RJ", "nome": "Departamento de Trânsito do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "DER-RJ", "nome": "Departamento de Estradas de Rodagem do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "FAETEC", "nome": "Fundação de Apoio à Escola Técnica", "status": "ativo" },
+  { "sigla": "EMOP", "nome": "Empresa de Obras Públicas do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "UERJ", "nome": "Universidade do Estado do Rio de Janeiro", "status": "ativo" },
+  { "sigla": "PGE", "nome": "Procuradoria Geral do Estado", "status": "inativo" }
+]

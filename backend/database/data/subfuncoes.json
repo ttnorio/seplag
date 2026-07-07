@@ -1,0 +1,12 @@
+[
+  { "funcao_codigo": "04", "codigo": "122", "nome": "Administração Geral" },
+  { "funcao_codigo": "06", "codigo": "181", "nome": "Policiamento" },
+  { "funcao_codigo": "10", "codigo": "301", "nome": "Atenção Básica" },
+  { "funcao_codigo": "12", "codigo": "361", "nome": "Ensino Fundamental" },
+  { "funcao_codigo": "15", "codigo": "451", "nome": "Infraestrutura Urbana" },
+  { "funcao_codigo": "18", "codigo": "541", "nome": "Preservação Ambiental" },
+  { "funcao_codigo": "20", "codigo": "605", "nome": "Abastecimento" },
+  { "funcao_codigo": "23", "codigo": "691", "nome": "Promoção Comercial" },
+  { "funcao_codigo": "26", "codigo": "782", "nome": "Transporte Rodoviário" },
+  { "funcao_codigo": "28", "codigo": "846", "nome": "Outros Encargos" }
+]

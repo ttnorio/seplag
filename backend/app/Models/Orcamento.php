@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Orcamento extends Model
 {
+    protected $table = 'orcamentos';
     /**
      * Campos que podem ser preenchidos em massa.
      */

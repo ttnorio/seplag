@@ -1,0 +1,42 @@
+[
+  {
+    "codigo": "001",
+    "nome": "Gestão Administrativa"
+  },
+  {
+    "codigo": "002",
+    "nome": "Educação de Qualidade"
+  },
+  {
+    "codigo": "003",
+    "nome": "Saúde para Todos"
+  },
+  {
+    "codigo": "004",
+    "nome": "Segurança Pública"
+  },
+  {
+    "codigo": "005",
+    "nome": "Infraestrutura e Mobilidade"
+  },
+  {
+    "codigo": "006",
+    "nome": "Desenvolvimento Econômico"
+  },
+  {
+    "codigo": "007",
+    "nome": "Tecnologia e Inovação"
+  },
+  {
+    "codigo": "008",
+    "nome": "Proteção Social"
+  },
+  {
+    "codigo": "009",
+    "nome": "Sustentabilidade Ambiental"
+  },
+  {
+    "codigo": "010",
+    "nome": "Turismo e Cultura"
+  }
+]

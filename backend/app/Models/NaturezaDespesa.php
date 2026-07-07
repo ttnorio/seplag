@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class NaturezaDespesa extends Model
 {
-    protected $table = 'naturezas_despesa';
+    protected $table = 'natureza_despesas';
 
     protected $fillable = [
         'codigo',

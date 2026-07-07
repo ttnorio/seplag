@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Funcao extends Model
 {
+    protected $table = 'funcoes';
+
     protected $fillable = [
         'codigo',
         'nome',

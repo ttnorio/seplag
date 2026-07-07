@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Fornecedor extends Model
 {
+    protected $table = 'fornecedores';
     protected $fillable = [
         'nome',
         'cnpj',

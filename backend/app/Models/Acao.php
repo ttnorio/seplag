@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Acao extends Model
 {
+    protected $table = 'acoes';
     protected $fillable = [
         'programa_id',
         'codigo',

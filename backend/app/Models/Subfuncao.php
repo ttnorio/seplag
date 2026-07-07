@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subfuncao extends Model
 {
+    protected $table = 'subfuncoes';
+
     protected $fillable = [
         'funcao_id',
         'codigo',

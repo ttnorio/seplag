@@ -6,26 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
-{
-    Schema::create('fontes_recurso', function (Blueprint $table) {
-        $table->id();
+    {
+        Schema::create('fontes_recurso', function (Blueprint $table) {
+            $table->id();
 
-        $table->string('codigo', 20)->unique();
-        $table->string('descricao');
+            $table->string('codigo', 20)->unique();
+            $table->string('descricao');
 
-        $table->timestamps();
-    });
-}
+            $table->timestamps();
+        });
+    }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('fonte_recursos');
+        Schema::dropIfExists('fontes_recurso');
     }
 };

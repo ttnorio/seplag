@@ -1,0 +1,42 @@
+[
+  {
+    "codigo": "04",
+    "nome": "Administração"
+  },
+  {
+    "codigo": "06",
+    "nome": "Segurança Pública"
+  },
+  {
+    "codigo": "10",
+    "nome": "Saúde"
+  },
+  {
+    "codigo": "12",
+    "nome": "Educação"
+  },
+  {
+    "codigo": "15",
+    "nome": "Urbanismo"
+  },
+  {
+    "codigo": "18",
+    "nome": "Gestão Ambiental"
+  },
+  {
+    "codigo": "20",
+    "nome": "Agricultura"
+  },
+  {
+    "codigo": "23",
+    "nome": "Comércio e Serviços"
+  },
+  {
+    "codigo": "26",
+    "nome": "Transporte"
+  },
+  {
+    "codigo": "28",
+    "nome": "Encargos Especiais"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "codigo": "100",
+    "descricao": "Recursos Ordinários"
+  },
+  {
+    "codigo": "101",
+    "descricao": "Receita de Impostos"
+  },
+  {
+    "codigo": "150",
+    "descricao": "Transferências da União"
+  },
+  {
+    "codigo": "170",
+    "descricao": "Convênios"
+  },
+  {
+    "codigo": "200",
+    "descricao": "Operações de Crédito"
+  },
+  {
+    "codigo": "250",
+    "descricao": "Recursos Vinculados"
+  }
+]

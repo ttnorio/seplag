@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Orgao extends Model
 {
+    protected $table = 'orgaos';
+
     protected $fillable = [
         'sigla',
         'nome',

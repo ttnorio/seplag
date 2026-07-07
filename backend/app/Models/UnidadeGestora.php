@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class UnidadeGestora extends Model
 {
+    protected $table = 'unidades_gestoras';
     protected $fillable = [
         'orgao_id',
         'nome',

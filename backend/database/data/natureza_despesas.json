@@ -1,0 +1,26 @@
+[
+  {
+    "codigo": "319011",
+    "descricao": "Vencimentos e Vantagens Fixas"
+  },
+  {
+    "codigo": "319013",
+    "descricao": "Obrigações Patronais"
+  },
+  {
+    "codigo": "339030",
+    "descricao": "Material de Consumo"
+  },
+  {
+    "codigo": "339039",
+    "descricao": "Outros Serviços de Terceiros"
+  },
+  {
+    "codigo": "449051",
+    "descricao": "Obras e Instalações"
+  },
+  {
+    "codigo": "449052",
+    "descricao": "Equipamentos e Material Permanente"
+  }
+]
