@@ -112,3 +112,18 @@ a {
   background: #b91c1c;
   color: #ffffff;
 }
+
+.header-button-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.header-button-secondary:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+}
+
+.header-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
