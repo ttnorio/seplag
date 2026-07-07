@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { DashboardPage } from './pages/DashboardPage'
 import { LoginPage } from './pages/LoginPage'
 import { OrcamentosPage } from './pages/OrcamentosPage'
+import { OrcamentoDetailPage } from './pages/OrcamentoDetailPage'
 
 function PrivateRoute({ children }: { children: ReactNode }) {
   const token = localStorage.getItem('@seplag:token')
@@ -30,13 +31,22 @@ function App() {
         />
 
         <Route
-          path="/orcamentos"
-          element={
-            <PrivateRoute>
-              <OrcamentosPage />
-            </PrivateRoute>
-          }
-        />
+  path="/orcamentos"
+  element={
+    <PrivateRoute>
+      <OrcamentosPage />
+    </PrivateRoute>
+  }
+/>
+
+<Route
+  path="/orcamentos/:id"
+  element={
+    <PrivateRoute>
+      <OrcamentoDetailPage />
+    </PrivateRoute>
+  }
+/>
       </Routes>
     </BrowserRouter>
   )
