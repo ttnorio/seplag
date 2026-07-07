@@ -58,11 +58,11 @@ export function DashboardPage() {
   }
 
   return (
-    <main style={styles.page}>
-      <header style={styles.header}>
+    <main className="page">
+  <header className="page-header">
         <div>
-          <h1 style={styles.title}>Dashboard SEPLAG</h1>
-          <p style={styles.subtitle}>
+          <h1 className="page-title">Dashboard SEPLAG</h1>
+          <p className="page-subtitle">
             Acompanhamento da execução orçamentária dos órgãos estaduais
           </p>
           <p style={styles.user}>
@@ -70,9 +70,15 @@ export function DashboardPage() {
           </p>
         </div>
 
-        <button style={styles.logoutButton} onClick={handleLogout}>
-          Sair
-        </button>
+        <div className="header-actions">
+  <a className="btn btn-primary fw-bold" href="/orcamentos">
+    Orçamentos
+  </a>
+
+  <button className="btn btn-danger fw-bold" onClick={handleLogout}>
+    Sair
+  </button>
+</div>
       </header>
 
       {loading && <p style={styles.message}>Carregando indicadores...</p>}
@@ -165,44 +171,11 @@ function formatStatus(status: string) {
 }
 
 const styles = {
-  page: {
-    minHeight: '100vh',
-    background: '#f8fafc',
-    fontFamily: 'Arial, sans-serif',
-    padding: '32px',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    gap: '16px',
-    marginBottom: '32px',
-  },
-  title: {
-    margin: 0,
-    color: '#0f172a',
-    fontSize: '30px',
-    fontWeight: 800,
-  },
-  subtitle: {
-    marginTop: '8px',
-    marginBottom: 0,
-    color: '#64748b',
-  },
   user: {
     marginTop: '12px',
     marginBottom: 0,
     color: '#334155',
     fontSize: '14px',
-  },
-  logoutButton: {
-    border: 0,
-    borderRadius: '10px',
-    background: '#dc2626',
-    color: '#ffffff',
-    padding: '10px 16px',
-    fontWeight: 700,
-    cursor: 'pointer',
   },
   message: {
     color: '#475569',
@@ -271,4 +244,14 @@ const styles = {
   statusName: {
     color: '#475569',
   },
+
+  linkButton: {
+  textDecoration: 'none',
+  borderRadius: '10px',
+  background: '#2563eb',
+  color: '#ffffff',
+  padding: '10px 16px',
+  fontWeight: 700,
+},
+
 } satisfies Record<string, CSSProperties>

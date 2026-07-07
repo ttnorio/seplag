@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import { DashboardPage } from './pages/DashboardPage'
 import { LoginPage } from './pages/LoginPage'
+import { OrcamentosPage } from './pages/OrcamentosPage'
 
 function PrivateRoute({ children }: { children: ReactNode }) {
   const token = localStorage.getItem('@seplag:token')
@@ -24,6 +25,15 @@ function App() {
           element={
             <PrivateRoute>
               <DashboardPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/orcamentos"
+          element={
+            <PrivateRoute>
+              <OrcamentosPage />
             </PrivateRoute>
           }
         />
