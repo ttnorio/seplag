@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             AcaoSeeder::class,
             OrcamentoSeeder::class,
             ContratoSeeder::class,
+            RevisaoSeeder::class,
         ]);
     }
 }
