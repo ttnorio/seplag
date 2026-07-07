@@ -22,7 +22,7 @@ return new class extends Migration
         $table->foreignId('acao_id')->constrained('acoes')->restrictOnDelete();
         $table->foreignId('funcao_id')->constrained('funcoes')->restrictOnDelete();
         $table->foreignId('subfuncao_id')->constrained('subfuncoes')->restrictOnDelete();
-        $table->foreignId('natureza_despesa_id')->constrained('naturezas_despesa')->restrictOnDelete();
+        $table->foreignId('natureza_despesa_id')->constrained('natureza_despesas');
         $table->foreignId('fonte_recurso_id')->constrained('fontes_recurso')->restrictOnDelete();
 
         $table->decimal('dotacao_inicial', 15, 2)->nullable();

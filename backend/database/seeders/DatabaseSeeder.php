@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
             SubfuncaoSeeder::class,
             NaturezaDespesaSeeder::class,
             FonteRecursoSeeder::class,
+            FornecedorSeeder::class,
+            UnidadeGestoraSeeder::class,
+            AcaoSeeder::class,
+            OrcamentoSeeder::class,
         ]);
     }
 }
