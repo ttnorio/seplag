@@ -38,6 +38,19 @@ services:
     networks:
       - seplag_network
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: seplag_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    networks:
+      - seplag_network
+
 volumes:
   seplag_mysql_data:
 
