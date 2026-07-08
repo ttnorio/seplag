@@ -323,16 +323,16 @@ export function OrcamentosPage() {
                     <td style={styles.td}>
                       {formatPercent(orcamento.percentual_execucao)}
                     </td>
-                      <td style={styles.td}>
+                    <td style={styles.td}>
                       <a className="header-button header-button-secondary"
-                       href={`/orcamentos/${orcamento.id}`}> Ver detalhes </a> 
-                     </td>
+                        href={`/orcamentos/${orcamento.id}`}> Ver detalhes </a>
+                    </td>
                     <td style={styles.td}>
                       <span className="status-badge">
                         {formatStatus(orcamento.status)}
                       </span>
                     </td>
-                    
+
                   </tr>
                 ))}
               </tbody>

@@ -80,6 +80,11 @@ export function OrcamentoDetailPage() {
   const [orcamento, setOrcamento] = useState<OrcamentoDetail | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [observacao, setObservacao] = useState('')
+  const [reviewLoading, setReviewLoading] = useState(false)
+  const [reviewMessage, setReviewMessage] = useState('')
+  const [reviewError, setReviewError] = useState('')
+  
 
   useEffect(() => {
     async function loadOrcamento() {
@@ -98,6 +103,44 @@ export function OrcamentoDetailPage() {
 
     loadOrcamento()
   }, [id])
+
+  async function handleReview() {
+    if (!orcamento) {
+      return
+    }
+
+    try {
+      setReviewLoading(true)
+      setReviewMessage('')
+      setReviewError('')
+
+      const response = await api.patch(`/orcamentos/${orcamento.id}/revisao`, {
+        observacao: observacao || null,
+      })
+
+      setOrcamento((current) => {
+        if (!current) {
+          return current
+        }
+
+        const revisoesSemDuplicada = current.revisoes.filter(
+          (revisao) => revisao.id !== response.data.revisao.id,
+        )
+
+        return {
+          ...current,
+          revisoes: [response.data.revisao, ...revisoesSemDuplicada],
+        }
+      })
+
+      setObservacao('')
+      setReviewMessage('Orçamento marcado como revisado com sucesso.')
+    } catch {
+      setReviewError('Não foi possível marcar o orçamento como revisado.')
+    } finally {
+      setReviewLoading(false)
+    }
+  }
 
   function handleLogout() {
     localStorage.removeItem('@seplag:token')
@@ -274,7 +317,38 @@ export function OrcamentoDetailPage() {
           </section>
 
           <section className="card-soft">
-            <h2 className="section-title">Revisões</h2>
+            <div className="section-header">
+              <div>
+                <h2 className="section-title">Revisões</h2>
+                <p className="section-subtitle">
+                  Marque este orçamento como revisado pelo analista autenticado.
+                </p>
+              </div>
+            </div>
+
+            <div className="review-form">
+              <label className="form-label-custom">
+                Observação
+                <textarea
+                  className="form-textarea-custom"
+                  value={observacao}
+                  onChange={(event) => setObservacao(event.target.value)}
+                  placeholder="Digite uma observação opcional sobre a revisão."
+                />
+              </label>
+
+              <button
+                className="header-button header-button-primary"
+                type="button"
+                onClick={handleReview}
+                disabled={reviewLoading}
+              >
+                {reviewLoading ? 'Salvando...' : 'Marcar como revisado'}
+              </button>
+
+              {reviewMessage && <p className="feedback-success">{reviewMessage}</p>}
+              {reviewError && <p className="feedback-error">{reviewError}</p>}
+            </div>
 
             {orcamento.revisoes.length === 0 ? (
               <p className="empty-text">Orçamento ainda não revisado.</p>
@@ -282,9 +356,7 @@ export function OrcamentoDetailPage() {
               <div className="review-list">
                 {orcamento.revisoes.map((revisao) => (
                   <article key={revisao.id} className="review-item">
-                    <strong>
-                      {revisao.user?.name ?? 'Analista não informado'}
-                    </strong>
+                    <strong>{revisao.user?.name ?? 'Analista não informado'}</strong>
                     <span>{formatDateTime(revisao.created_at)}</span>
                     <p>{revisao.observacao ?? 'Informação não disponível.'}</p>
                   </article>

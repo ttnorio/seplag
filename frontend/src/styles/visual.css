@@ -241,3 +241,34 @@ a {
   color: #dc2626;
   font-weight: 700;
 }
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.form-label-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-textarea-custom {
+  min-height: 96px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  padding: 10px 12px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.feedback-success {
+  color: #15803d;
+  font-weight: 700;
+  margin: 0;
+}
