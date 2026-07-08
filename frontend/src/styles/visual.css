@@ -324,3 +324,51 @@ a {
   white-space: nowrap;
   color: #0f172a;
 }
+
+.filters-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.form-input-custom {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  padding: 0 10px;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.table-total {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.pagination-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pagination-text {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+}
