@@ -1,5 +1,18 @@
 import { useEffect, useState } from 'react'
 import type { CSSProperties } from 'react'
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import { api } from '../api/client'
 
 type StoredUser = {
@@ -25,8 +38,75 @@ type DashboardData = {
   contratos_por_status: Record<string, number>
 }
 
+type GraficoData = {
+  execucao_por_orgao: {
+    id: number
+    sigla: string
+    nome: string
+    dotacao_atualizada: number
+    valor_empenhado: number
+    valor_pago: number
+    percentual_execucao: number
+  }[]
+
+  execucao_por_programa: {
+    id: number
+    codigo: string
+    nome: string
+    dotacao_atualizada: number
+    valor_empenhado: number
+    valor_pago: number
+    percentual_execucao: number
+  }[]
+
+  empenhado_x_pago: {
+    empenhado: number
+    liquidado: number
+    pago: number
+  }
+
+  top_10_contratos: {
+    id: number
+    numero_contrato: string
+    objeto: string
+    valor: string
+    status: string
+    fornecedor?: {
+      nome: string
+      cnpj: string | null
+    }
+    orcamento?: {
+      orgao?: {
+        sigla: string
+        nome: string
+      }
+    }
+  }[]
+
+  evolucao_anual: {
+    ano: number
+    dotacao_atualizada: number
+    valor_empenhado: number
+    valor_liquidado: number
+    valor_pago: number
+  }[]
+
+  orcamentos_por_status: {
+    status: string
+    total: number
+  }[]
+
+  contratos_por_status: {
+    status: string
+    total: number
+  }[]
+}
+
+const chartColors = ['#2563eb', '#16a34a', '#f97316', '#dc2626', '#7c3aed']
+
 export function DashboardPage() {
   const [data, setData] = useState<DashboardData | null>(null)
+  const [graficos, setGraficos] = useState<GraficoData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -39,8 +119,13 @@ export function DashboardPage() {
         setLoading(true)
         setError('')
 
-        const response = await api.get<DashboardData>('/dashboard')
-        setData(response.data)
+        const [dashboardResponse, graficosResponse] = await Promise.all([
+          api.get<DashboardData>('/dashboard'),
+          api.get<GraficoData>('/graficos'),
+        ])
+
+        setData(dashboardResponse.data)
+        setGraficos(graficosResponse.data)
       } catch {
         setError('Não foi possível carregar os dados do dashboard.')
       } finally {
@@ -59,7 +144,7 @@ export function DashboardPage() {
 
   return (
     <main className="page">
-  <header className="page-header">
+      <header className="page-header">
         <div>
           <h1 className="page-title">Dashboard SEPLAG</h1>
           <p className="page-subtitle">
@@ -71,14 +156,14 @@ export function DashboardPage() {
         </div>
 
         <div className="header-actions">
-  <a className="btn btn-primary fw-bold" href="/orcamentos">
-    Orçamentos
-  </a>
+          <a className="header-button header-button-primary" href="/orcamentos">
+            Orçamentos
+          </a>
 
-  <button className="btn btn-danger fw-bold" onClick={handleLogout}>
-    Sair
-  </button>
-</div>
+          <button className="header-button header-button-danger" onClick={handleLogout}>
+            Sair
+          </button>
+        </div>
       </header>
 
       {loading && <p style={styles.message}>Carregando indicadores...</p>}
@@ -118,6 +203,118 @@ export function DashboardPage() {
               items={data.contratos_por_status}
             />
           </section>
+
+          {graficos && (
+            <section className="dashboard-charts">
+              <article className="card-soft chart-card">
+                <h2 className="section-title">Execução por órgão</h2>
+                <p className="section-subtitle">
+                  Percentual de execução dos órgãos com maior dotação.
+                </p>
+
+                <div className="chart-wrapper">
+                  <ResponsiveContainer width="100%" height={320}>
+                    <BarChart data={graficos.execucao_por_orgao.slice(0, 10)}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="sigla" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar
+                        dataKey="percentual_execucao"
+                        name="% execução"
+                        fill="#2563eb"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </article>
+
+              <article className="card-soft chart-card">
+                <h2 className="section-title">Evolução anual</h2>
+                <p className="section-subtitle">
+                  Comparativo entre dotação, empenhado e pago por ano.
+                </p>
+
+                <div className="chart-wrapper">
+                  <ResponsiveContainer width="100%" height={320}>
+                    <BarChart data={graficos.evolucao_anual}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="ano" />
+                      <YAxis />
+                      <Tooltip formatter={(value) => formatCurrency(Number(value))} />
+                      <Legend />
+                      <Bar
+                        dataKey="dotacao_atualizada"
+                        name="Dotação"
+                        fill="#2563eb"
+                      />
+                      <Bar
+                        dataKey="valor_empenhado"
+                        name="Empenhado"
+                        fill="#f97316"
+                      />
+                      <Bar dataKey="valor_pago" name="Pago" fill="#16a34a" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </article>
+
+              <article className="card-soft chart-card">
+                <h2 className="section-title">Orçamentos por status</h2>
+                <p className="section-subtitle">
+                  Distribuição dos registros orçamentários por situação.
+                </p>
+
+                <div className="chart-wrapper">
+                  <ResponsiveContainer width="100%" height={320}>
+                    <PieChart>
+                      <Pie
+                        data={graficos.orcamentos_por_status}
+                        dataKey="total"
+                        nameKey="status"
+                        outerRadius={110}
+                      >
+                        {graficos.orcamentos_por_status.map((entry, index) => (
+                          <Cell
+                            key={entry.status}
+                            fill={chartColors[index % chartColors.length]}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                      <Legend formatter={(value) => formatStatus(String(value))} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </article>
+
+              <article className="card-soft chart-card">
+                <h2 className="section-title">Top 10 contratos</h2>
+                <p className="section-subtitle">Maiores contratos por valor.</p>
+
+                <div className="top-contracts-list">
+                  {graficos.top_10_contratos.map((contrato) => (
+                    <div key={contrato.id} className="top-contract-item">
+                      <div>
+                        <strong>{contrato.numero_contrato}</strong>
+                        <p>
+                          {contrato.fornecedor?.nome ??
+                            'Fornecedor não informado'}
+                        </p>
+                        <span>
+                          {contrato.orcamento?.orgao?.sigla ??
+                            'Órgão não informado'}
+                        </span>
+                      </div>
+
+                      <strong>{formatCurrency(Number(contrato.valor))}</strong>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </section>
+          )}
         </>
       )}
     </main>
@@ -244,14 +441,4 @@ const styles = {
   statusName: {
     color: '#475569',
   },
-
-  linkButton: {
-  textDecoration: 'none',
-  borderRadius: '10px',
-  background: '#2563eb',
-  color: '#ffffff',
-  padding: '10px 16px',
-  fontWeight: 700,
-},
-
 } satisfies Record<string, CSSProperties>
