@@ -176,24 +176,56 @@ export function DashboardPage() {
 
       {data && (
         <>
-          <section style={styles.cardsGrid}>
-            <MetricCard title="Órgãos" value={data.total_orgaos} />
-            <MetricCard title="Orçamentos" value={data.total_orcamentos} />
-            <MetricCard title="Contratos" value={data.total_contratos} />
+          <section className="dashboard-summary">
+            <MetricCard title="Órgãos" value={data.total_orgaos} variant="highlight" />
+            <MetricCard title="Orçamentos" value={data.total_orcamentos} variant="highlight" />
+            <MetricCard title="Contratos" value={data.total_contratos} variant="highlight" />
             <MetricCard
               title="Execução"
               value={`${data.percentual_execucao.toFixed(2)}%`}
+              variant="success"
             />
+          </section>
+
+          <section className="dashboard-financial">
             <MetricCard
               title="Orçamento Total"
               value={formatCurrency(data.orcamento_total)}
+              variant="financial"
             />
-            <MetricCard title="Empenhado" value={formatCurrency(data.empenhado)} />
-            <MetricCard title="Liquidado" value={formatCurrency(data.liquidado)} />
-            <MetricCard title="Pago" value={formatCurrency(data.pago)} />
-            <MetricCard title="Saldo" value={formatCurrency(data.saldo)} />
-            <MetricCard title="Revisados" value={data.total_revisados} />
-            <MetricCard title="Não revisados" value={data.total_nao_revisados} />
+            <MetricCard
+              title="Empenhado"
+              value={formatCurrency(data.empenhado)}
+              variant="financial"
+            />
+            <MetricCard
+              title="Liquidado"
+              value={formatCurrency(data.liquidado)}
+              variant="financial"
+            />
+            <MetricCard
+              title="Pago"
+              value={formatCurrency(data.pago)}
+              variant="financial"
+            />
+          </section>
+
+          <section className="dashboard-review">
+            <MetricCard
+              title="Saldo"
+              value={formatCurrency(data.saldo)}
+              variant="financial"
+            />
+            <MetricCard
+              title="Revisados"
+              value={data.total_revisados}
+              variant="success"
+            />
+            <MetricCard
+              title="Não revisados"
+              value={data.total_nao_revisados}
+              variant="warning"
+            />
           </section>
 
           <section style={styles.sectionGrid}>
@@ -325,11 +357,30 @@ export function DashboardPage() {
   )
 }
 
-function MetricCard({ title, value }: { title: string; value: string | number }) {
+function MetricCard({
+  title,
+  value,
+  variant = 'default',
+}: {
+  title: string
+  value: string | number
+  variant?: 'default' | 'highlight' | 'success' | 'warning' | 'danger' | 'financial'
+}) {
+  const classNames = [
+    'metric-card',
+    variant === 'highlight' ? 'metric-card-highlight' : '',
+    variant === 'success' ? 'metric-card-success' : '',
+    variant === 'warning' ? 'metric-card-warning' : '',
+    variant === 'danger' ? 'metric-card-danger' : '',
+    variant === 'financial' ? 'metric-card-financial' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <article style={styles.card}>
-      <p style={styles.cardTitle}>{title}</p>
-      <strong style={styles.cardValue}>{value}</strong>
+    <article className={classNames}>
+      <p className="metric-card-title">{title}</p>
+      <strong className="metric-card-value">{value}</strong>
     </article>
   )
 }
@@ -384,31 +435,6 @@ const styles = {
   error: {
     color: '#dc2626',
     fontWeight: 700,
-  },
-  cardsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '16px',
-  },
-  card: {
-    background: '#ffffff',
-    borderRadius: '16px',
-    padding: '20px',
-    boxShadow: '0 10px 30px rgba(15, 23, 42, 0.08)',
-    border: '1px solid #e2e8f0',
-  },
-  cardTitle: {
-    margin: 0,
-    color: '#64748b',
-    fontSize: '14px',
-    fontWeight: 700,
-  },
-  cardValue: {
-    display: 'block',
-    marginTop: '10px',
-    color: '#0f172a',
-    fontSize: '24px',
-    lineHeight: 1.2,
   },
   sectionGrid: {
     display: 'grid',

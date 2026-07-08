@@ -372,3 +372,199 @@ a {
   font-size: 14px;
   font-weight: 700;
 }
+
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-financial {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-review {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  min-height: 108px;
+}
+
+.metric-card-title {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-card-value {
+  display: block;
+  margin-top: 12px;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.metric-card-financial .metric-card-value {
+  font-size: 22px;
+}
+
+.metric-card-highlight {
+  border-left: 5px solid #2563eb;
+}
+
+.metric-card-success {
+  border-left: 5px solid #16a34a;
+}
+
+.metric-card-warning {
+  border-left: 5px solid #f97316;
+}
+
+.metric-card-danger {
+  border-left: 5px solid #dc2626;
+}
+
+@media (max-width: 1200px) {
+
+  .dashboard-summary,
+  .dashboard-financial {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+
+  .dashboard-summary,
+  .dashboard-financial,
+  .dashboard-review {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-button {
+    flex: 1;
+  }
+}
+
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-financial {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-review {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  min-height: 108px;
+}
+
+.metric-card-title {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metric-card-value {
+  display: block;
+  margin-top: 12px;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.metric-card-financial .metric-card-value {
+  font-size: 22px;
+}
+
+.metric-card-highlight {
+  border-left: 5px solid #2563eb;
+}
+
+.metric-card-success {
+  border-left: 5px solid #16a34a;
+}
+
+.metric-card-warning {
+  border-left: 5px solid #f97316;
+}
+
+.metric-card-danger {
+  border-left: 5px solid #dc2626;
+}
+
+@media (max-width: 1200px) {
+
+  .dashboard-summary,
+  .dashboard-financial {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+
+  .dashboard-summary,
+  .dashboard-financial,
+  .dashboard-review {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-button {
+    flex: 1;
+  }
+}
