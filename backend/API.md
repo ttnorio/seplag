@@ -2,9 +2,7 @@
 
 Base URL local:
 
-```txt
-http://127.0.0.1:8000/api
-```
+- `http://127.0.0.1:8000/api`
 
 ---
 
@@ -14,10 +12,8 @@ A API utiliza Laravel Sanctum com Bearer Token.
 
 Usuário de teste:
 
-```txt
-E-mail: analista@seplag.rj.gov.br
-Senha: orcamento@2026
-```
+- **E-mail:** `analista@seplag.rj.gov.br`
+- **Senha:** `orcamento@2026`
 
 ### POST /auth/login
 
@@ -96,21 +92,17 @@ Lista órgãos com paginação.
 
 Filtros disponíveis:
 
-```txt
-busca
-status
-per_page
-page
-```
+- `busca`
+- `status`
+- `per_page`
+- `page`
 
 Exemplos:
 
-```txt
-GET /orgaos
-GET /orgaos?status=ativo
-GET /orgaos?busca=SEPLAG
-GET /orgaos?busca=se&status=ativo&per_page=5
-```
+- `GET /orgaos`
+- `GET /orgaos?status=ativo`
+- `GET /orgaos?busca=SEPLAG`
+- `GET /orgaos?busca=se&status=ativo&per_page=5`
 
 ---
 
@@ -122,51 +114,43 @@ Lista registros orçamentários com paginação e relacionamentos principais.
 
 Filtros disponíveis:
 
-```txt
-orgao_id
-programa_id
-acao_id
-ano
-status
-percentual_min
-percentual_max
-per_page
-page
-```
+- `orgao_id`
+- `programa_id`
+- `acao_id`
+- `ano`
+- `status`
+- `percentual_min`
+- `percentual_max`
+- `per_page`
+- `page`
 
 Exemplos:
 
-```txt
-GET /orcamentos
-GET /orcamentos?per_page=5
-GET /orcamentos?status=inconsistente
-GET /orcamentos?ano=2026
-GET /orcamentos?percentual_min=50&percentual_max=80
-```
+- `GET /orcamentos`
+- `GET /orcamentos?per_page=5`
+- `GET /orcamentos?status=inconsistente`
+- `GET /orcamentos?ano=2026`
+- `GET /orcamentos?percentual_min=50&percentual_max=80`
 
 ### GET /orcamentos/{id}
 
 Retorna o detalhamento completo de um orçamento, incluindo:
 
-```txt
-órgão
-unidade gestora
-programa
-ação
-função
-subfunção
-natureza da despesa
-fonte de recurso
-contratos vinculados
-revisões
-```
+- órgão;
+- unidade gestora;
+- programa;
+- ação;
+- função;
+- subfunção;
+- natureza da despesa;
+- fonte de recurso;
+- contratos vinculados;
+- revisões.
 
 Exemplos:
 
-```txt
-GET /orcamentos/1
-GET /orcamentos/250
-```
+- `GET /orcamentos/1`
+- `GET /orcamentos/250`
 
 ### PATCH /orcamentos/{id}/revisao
 
@@ -206,23 +190,19 @@ Lista contratos vinculados aos orçamentos.
 
 Filtros disponíveis:
 
-```txt
-orgao_id
-status
-fornecedor
-per_page
-page
-```
+- `orgao_id`
+- `status`
+- `fornecedor`
+- `per_page`
+- `page`
 
 Exemplos:
 
-```txt
-GET /contratos
-GET /contratos?status=vigente
-GET /contratos?status=vencido
-GET /contratos?fornecedor=Alpha
-GET /contratos?orgao_id=1
-```
+- `GET /contratos`
+- `GET /contratos?status=vigente`
+- `GET /contratos?status=vencido`
+- `GET /contratos?fornecedor=Alpha`
+- `GET /contratos?orgao_id=1`
 
 ---
 
@@ -234,15 +214,13 @@ Retorna dados agregados para gráficos.
 
 Inclui:
 
-```txt
-execucao_por_orgao
-execucao_por_programa
-empenhado_x_pago
-top_10_contratos
-evolucao_anual
-orcamentos_por_status
-contratos_por_status
-```
+- `execucao_por_orgao`
+- `execucao_por_programa`
+- `empenhado_x_pago`
+- `top_10_contratos`
+- `evolucao_anual`
+- `orcamentos_por_status`
+- `contratos_por_status`
 
 ---
 
@@ -250,11 +228,9 @@ contratos_por_status
 
 As seguintes rotas exigem autenticação via Bearer Token:
 
-```txt
-GET /auth/me
-POST /auth/logout
-PATCH /orcamentos/{id}/revisao
-```
+- `GET /auth/me`
+- `POST /auth/logout`
+- `PATCH /orcamentos/{id}/revisao`
 
 ---
 
