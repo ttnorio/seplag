@@ -160,6 +160,10 @@ export function DashboardPage() {
             Orçamentos
           </a>
 
+          <a className="header-button header-button-primary" href="/contratos">
+            Contratos
+          </a>
+
           <button className="header-button header-button-danger" onClick={handleLogout}>
             Sair
           </button>
