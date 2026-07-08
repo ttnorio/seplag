@@ -15,6 +15,29 @@ services:
     networks:
       - seplag_network
 
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: seplag_backend
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      APP_ENV: local
+      APP_DEBUG: true
+      APP_URL: http://localhost:8000
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: seplag
+      DB_USERNAME: seplag
+      DB_PASSWORD: seplag
+    ports:
+      - "8000:8000"
+    networks:
+      - seplag_network
+
 volumes:
   seplag_mysql_data:
 
