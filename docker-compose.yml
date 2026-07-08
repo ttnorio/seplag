@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: seplag_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: seplag
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: seplag
+      MYSQL_PASSWORD: seplag
+    ports:
+      - "3307:3306"
+    volumes:
+      - seplag_mysql_data:/var/lib/mysql
+    networks:
+      - seplag_network
+
+volumes:
+  seplag_mysql_data:
+
+networks:
+  seplag_network:
+    driver: bridge
