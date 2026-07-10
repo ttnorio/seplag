@@ -54,6 +54,9 @@ const initialFilters: Filters = {
 }
 
 export function ContratosPage() {
+    useEffect(() => {
+        document.title = 'Contratos - SEPLAG'
+    }, [])
     const [contratos, setContratos] = useState<Contrato[]>([])
     const [meta, setMeta] = useState<PaginatedResponse | null>(null)
     const [filters, setFilters] = useState<Filters>(initialFilters)

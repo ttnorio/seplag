@@ -105,7 +105,11 @@ type GraficoData = {
 const chartColors = ['#2563eb', '#16a34a', '#f97316', '#dc2626', '#7c3aed']
 
 export function DashboardPage() {
-  const [showAllContracts, setShowAllContracts] = useState(false);
+  useEffect(() => {
+    document.title = 'Dashboard - SEPLAG'
+  }, [])
+
+  const [showAllContracts, setShowAllContracts] = useState(false)
   const [data, setData] = useState<DashboardData | null>(null)
   const [graficos, setGraficos] = useState<GraficoData | null>(null)
   const [loading, setLoading] = useState(true)

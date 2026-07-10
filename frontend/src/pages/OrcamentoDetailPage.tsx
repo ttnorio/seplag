@@ -76,6 +76,9 @@ type OrcamentoDetail = {
 }
 
 export function OrcamentoDetailPage() {
+  useEffect(() => {
+  document.title = 'Orçamentos - SEPLAG'
+}, [])
   const { id } = useParams()
   const [orcamento, setOrcamento] = useState<OrcamentoDetail | null>(null)
   const [loading, setLoading] = useState(true)

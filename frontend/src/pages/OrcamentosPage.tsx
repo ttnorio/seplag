@@ -51,6 +51,9 @@ const initialFilters: Filters = {
 }
 
 export function OrcamentosPage() {
+  useEffect(() => {
+    document.title = 'Orçamentos - SEPLAG'
+  }, [])
   const [orcamentos, setOrcamentos] = useState<Orcamento[]>([])
   const [meta, setMeta] = useState<PaginatedResponse | null>(null)
   const [filters, setFilters] = useState<Filters>(initialFilters)
