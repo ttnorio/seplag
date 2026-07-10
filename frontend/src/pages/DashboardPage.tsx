@@ -354,7 +354,6 @@ export function DashboardPage() {
                       <strong>{formatCurrency(Number(contrato.valor))}</strong>
                     </div>
                   ))}
-
                   {topContracts.length > 3 && (
                     <button
                       type="button"
