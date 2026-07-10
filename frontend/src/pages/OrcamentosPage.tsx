@@ -163,11 +163,11 @@ export function OrcamentosPage() {
       </header>
 
       <section className="card-soft" style={styles.filtersCard}>
-        <form onSubmit={handleSubmit} style={styles.filtersForm}>
-          <label style={styles.field}>
+        <form onSubmit={handleSubmit} className="filters-form">
+          <label className="form-label-custom">
             Ano
             <select
-              style={styles.input}
+              className="form-input-custom"
               value={filters.ano}
               onChange={(event) =>
                 setFilters((current) => ({ ...current, ano: event.target.value }))
@@ -180,10 +180,10 @@ export function OrcamentosPage() {
             </select>
           </label>
 
-          <label style={styles.field}>
+          <label className="form-label-custom">
             Status
             <select
-              style={styles.input}
+              className="form-input-custom"
               value={filters.status}
               onChange={(event) =>
                 setFilters((current) => ({
@@ -201,10 +201,10 @@ export function OrcamentosPage() {
             </select>
           </label>
 
-          <label style={styles.field}>
+          <label className="form-label-custom">
             Execução mínima (%)
             <input
-              style={styles.input}
+              className="form-input-custom"
               type="number"
               min="0"
               max="100"
@@ -221,7 +221,7 @@ export function OrcamentosPage() {
           <label style={styles.field}>
             Execução máxima (%)
             <input
-              style={styles.input}
+              className="form-input-custom"
               type="number"
               min="0"
               max="150"
@@ -238,7 +238,7 @@ export function OrcamentosPage() {
           <label style={styles.field}>
             Por página
             <select
-              style={styles.input}
+              className="form-input-custom"
               value={filters.per_page}
               onChange={(event) =>
                 setFilters((current) => ({
@@ -254,7 +254,7 @@ export function OrcamentosPage() {
             </select>
           </label>
 
-          <div style={styles.filterActions}>
+          <div className="filter-actions">
             <button className="header-button header-button-primary" type="submit">
               Filtrar
             </button>
