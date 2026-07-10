@@ -74,6 +74,21 @@ O projeto foi pensado para demonstrar uma aplicação full stack funcional, orga
 
 ## Funcionalidades implementadas
 
+Além dos requisitos principais do desafio, o projeto também contempla alguns diferenciais técnicos:
+
+- Uso de **React Query / TanStack Query** para gerenciamento de estado servidor, controle de carregamento, erros e atualização de dados vindos da API.
+- Uso de **Recharts** para gráficos interativos no dashboard.
+- Execução completa com **Docker Compose**, incluindo frontend, backend e banco de dados MySQL.
+- Frontend React servido via **Nginx** no ambiente Docker.
+- Filtros combinados em listagens de orçamentos e contratos.
+- Dashboard com indicadores consolidados, gráficos e ranking de contratos.
+- Interface validada em resolução de notebook e em telas mobile.
+- Documentação técnica complementar com README, documentação de API, arquitetura e decisões técnicas.
+- Massa fictícia gerada por seeders, permitindo testar o sistema sem depender de dados externos.
+- Fluxo autenticado de revisão de orçamento utilizando token Bearer com Laravel Sanctum.
+
+Esses pontos foram priorizados para entregar uma aplicação funcional, executável, documentada e próxima de um cenário real de avaliação técnica.
+
 ### Backend
 
 - Autenticação via token com Laravel Sanctum.
