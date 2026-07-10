@@ -105,6 +105,7 @@ type GraficoData = {
 const chartColors = ['#2563eb', '#16a34a', '#f97316', '#dc2626', '#7c3aed']
 
 export function DashboardPage() {
+  const [showAllContracts, setShowAllContracts] = useState(false);
   const [data, setData] = useState<DashboardData | null>(null)
   const [graficos, setGraficos] = useState<GraficoData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -141,6 +142,12 @@ export function DashboardPage() {
     localStorage.removeItem('@seplag:user')
     window.location.href = '/'
   }
+
+  const topContracts = graficos?.top_10_contratos ?? [];
+
+  const visibleTopContracts = showAllContracts
+    ? topContracts
+    : topContracts.slice(0, 3);
 
   return (
     <main className="page">
@@ -330,7 +337,7 @@ export function DashboardPage() {
                 <p className="section-subtitle">Maiores contratos por valor.</p>
 
                 <div className="top-contracts-list">
-                  {graficos.top_10_contratos.map((contrato) => (
+                  {visibleTopContracts.map((contrato) => (
                     <div key={contrato.id} className="top-contract-item">
                       <div>
                         <strong>{contrato.numero_contrato}</strong>
@@ -347,6 +354,16 @@ export function DashboardPage() {
                       <strong>{formatCurrency(Number(contrato.valor))}</strong>
                     </div>
                   ))}
+
+                  {topContracts.length > 3 && (
+                    <button
+                      type="button"
+                      className="show-more-button"
+                      onClick={() => setShowAllContracts((current) => !current)}
+                    >
+                      {showAllContracts ? 'Mostrar menos' : 'Mostrar mais'}
+                    </button>
+                  )}
                 </div>
               </article>
             </section>

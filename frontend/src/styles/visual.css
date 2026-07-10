@@ -275,13 +275,20 @@ a {
 
 .dashboard-charts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-  gap: 20px;
-  margin-top: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 28px;
+  align-items: start;
 }
 
 .chart-card {
-  min-height: 420px;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 47, 95, 0.06);
+  align-self: start;
+  height: auto;
 }
 
 .chart-wrapper {
@@ -387,11 +394,12 @@ a {
   margin-bottom: 16px;
 }
 
-.dashboard-review {
+.dashboard-charts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(180px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 28px;
+  align-items: start;
 }
 
 .metric-card {
@@ -454,7 +462,7 @@ a {
   .dashboard-summary,
   .dashboard-financial,
   .dashboard-review {
-    grid-template-columns: 1fr;
+    margin-bottom: 28px;
   }
 
   .page-header {
@@ -567,4 +575,47 @@ a {
   .header-button {
     flex: 1;
   }
+}
+
+.show-more-button {
+  margin-top: 16px;
+  width: 100%;
+  border: 1px solid #d0d7e2;
+  background: #ffffff;
+  color: #0f2f5f;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.show-more-button:hover {
+  background: #f3f6fb;
+  border-color: #9fb2ce;
+}
+
+/* Dashboard spacing adjustments */
+.dashboard-summary,
+.dashboard-financial,
+.dashboard-review {
+  margin-bottom: 24px;
+}
+
+.dashboard-charts {
+  margin-top: 24px;
+  column-gap: 20px;
+  row-gap: 24px !important;
+  align-items: start;
+}
+
+.dashboard-charts .chart-card {
+  align-self: start;
+  min-height: unset;
+  height: auto;
+}
+
+.dashboard-charts .chart-wrapper {
+  height: 300px;
+  margin-top: 16px;
 }
