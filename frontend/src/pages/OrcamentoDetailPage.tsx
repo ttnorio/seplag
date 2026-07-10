@@ -84,7 +84,7 @@ export function OrcamentoDetailPage() {
   const [reviewLoading, setReviewLoading] = useState(false)
   const [reviewMessage, setReviewMessage] = useState('')
   const [reviewError, setReviewError] = useState('')
-  
+
 
   useEffect(() => {
     async function loadOrcamento() {
@@ -338,7 +338,7 @@ export function OrcamentoDetailPage() {
               </label>
 
               <button
-                className="header-button header-button-primary"
+                className="header-button header-button-primary review-submit-button"
                 type="button"
                 onClick={handleReview}
                 disabled={reviewLoading}
